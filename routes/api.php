@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HealthController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\ApiAuthMiddleware;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get("/ping", [HealthController::class, "ping"]);
 Route::post("/users", [UserController::class, "register"]);
 Route::post("/users/login", [UserController::class, "login"]);
 
